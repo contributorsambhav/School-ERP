@@ -1,3 +1,13 @@
+const dotenv = require("dotenv");
+dotenv.config();
+
+const { Pool } = require("pg");
+const pool = new Pool({
+  connectionString: process.env.SQL_CONNECTION_URL,
+  ssl: { rejectUnauthorized: false },
+});
+
+
 const listSchools = async (req, res) => {
   const { latitude, longitude } = req.query;
 

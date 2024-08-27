@@ -1,17 +1,13 @@
 const express = require("express");
-const { Pool } = require("pg");
+
 const app = express();
-const port = process.env.PORT || 3000;
-const dotenv = require("dotenv");
-dotenv.config();
+const port = 3000;
+
 
 const listSchools = require("./controllers/listSchools");
 const addSchool =  require("./controllers/addSchool");
 
-const pool = new Pool({
-  connectionString: process.env.SQL_CONNECTION_URL,
-  ssl: { rejectUnauthorized: false },
-});
+
 
 app.use(express.json());
 
